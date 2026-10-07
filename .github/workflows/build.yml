@@ -1,0 +1,66 @@
+name: Publish release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: windows-latest
+
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+
+    defaults:
+      run:
+        shell: pwsh
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v3
+
+      - name: Build Release
+        run: >
+          msbuild VisualFlightOps/VisualFlightOps.csproj
+          /restore
+          /m
+          /p:Configuration=Release
+          /p:Platform=AnyCPU
+
+      - name: Verify executable exists
+        run: |
+          if (!(Test-Path "VisualFlightOps/bin/Release/VisualFlightOps.exe" -PathType Leaf)) {
+            throw "The build did not produce VisualFlightOps.exe."
+          }
+
+      - name: Attest executable
+        uses: actions/attest@v4
+        with:
+          subject-path: ${{ github.workspace }}/VisualFlightOps/bin/Release/VisualFlightOps.exe
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$env:RELEASE_TAG" `
+            "VisualFlightOps/bin/Release/VisualFlightOps.exe" `
+            --verify-tag `
+            --title "VisualFlightOps $env:RELEASE_TAG" `
+            --generate-notes
+
+          if ($LASTEXITCODE -ne 0) {
+            throw "Release publication failed."
+          }
