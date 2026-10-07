@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VisualFlightOps.Framework")]
+[assembly: AssemblyTitle("VisualFlightOps")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("VisualFlightOps.Framework")]
-[assembly: AssemblyCopyright("Copyright © HP Inc. 2026")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("VisualFlightOps")]
+[assembly: AssemblyCopyright("Copyright © 2026 Louie Bloomberg.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -30,4 +30,4 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]
