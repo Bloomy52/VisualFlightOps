@@ -13,15 +13,15 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows.Forms;
 
-namespace VisualFlightOps
+namespace VisualFlightOps.Framework
 {
     public partial class Form2 : Form
     {
         public int flightNumber;
-        public string depCode = string.Empty;
-        public string arrCode = string.Empty;
+        public string depCode;
+        public string arrCode;
         public int crewId;
-        public string status = string.Empty;
+        public string status;
 
         private Form1 form1;
         public Form2(Form1 mainForm)
@@ -33,13 +33,14 @@ namespace VisualFlightOps
 
         private void btnSaveFlight_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtFlightNumber.Text, out int number) ||
-                !int.TryParse(txtCrewId.Text, out int crew))
+            int number;
+            int crew;
+            if (!int.TryParse(txtFlightNumber.Text, out number) || !int.TryParse(txtCrewId.Text, out crew))
             {
                 MessageBox.Show(this, "Please enter a valid flight number and crew ID.");
                 return;
             }
-            if (cbxFlightStatus.SelectedItem is not string selectedStatus)
+            if (cbxFlightStatus.SelectedItem == null)
             {
                 MessageBox.Show(this, "Please select a flight status.");
                 return;
@@ -48,7 +49,7 @@ namespace VisualFlightOps
             depCode = txtDepCode.Text;
             arrCode = txtArrCode.Text;
             crewId = crew;
-            status = selectedStatus;
+            status = cbxFlightStatus.SelectedItem.ToString();
 
             Flight newFlight = new Flight(flightNumber, depCode, arrCode, crewId, status);
 
@@ -60,3 +61,5 @@ namespace VisualFlightOps
 
     }
 }
+
+

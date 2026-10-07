@@ -1,7 +1,12 @@
-﻿namespace VisualFlightOps
+using System.Windows.Forms;
+
+namespace VisualFlightOps.Framework
 {
+    using System.Drawing;
+    using System.Windows.Forms;
     partial class Form2
     {
+        
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -146,6 +151,7 @@
             // 
             // Form2
             // 
+            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(677, 387);

@@ -1,5 +1,9 @@
-﻿namespace VisualFlightOps
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace VisualFlightOps.Framework
 {
+
     partial class Form1
     {
         /// <summary>
@@ -74,6 +78,7 @@
             // 
             // Form1
             // 
+            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(651, 361);
@@ -88,9 +93,10 @@
 
         #endregion
 
-        private ListBox lstFlights;
-        private ListBox lstFlightInfo;
-        private Button btnCreateFlight;
-        private Button btnUpdateFlight;
+        private System.Windows.Forms.ListBox lstFlights;
+        private System.Windows.Forms.ListBox lstFlightInfo;
+        private System.Windows.Forms.Button btnCreateFlight;
+        private System.Windows.Forms.Button btnUpdateFlight;
     }
 }
+

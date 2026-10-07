@@ -1,4 +1,6 @@
-﻿namespace VisualFlightOps
+using System.Drawing;
+using System.Windows.Forms;
+namespace VisualFlightOps.Framework
 {
     partial class Form3
     {
@@ -148,6 +150,7 @@
             // 
             // Form3
             // 
+            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(678, 380);
@@ -183,3 +186,4 @@
         private MaskedTextBox txtCrewId;
     }
 }
+

@@ -1,9 +1,11 @@
-/*!
+﻿/*!
  * Visual Flight Operations Management System
  * Copyright (c) 2026 Louie Bloomberg.
  * SPDX-License-Identifier: MIT
  */
-namespace VisualFlightOps;
+
+using System;
+
 public class Flight
 {
     public int Number { get; set; }
@@ -35,17 +37,12 @@ public class Flight
         Console.WriteLine("Updating Flight Information for FL{0}", Number);
         Console.WriteLine("To leave any flight information alone, leave update field blank.");
         Console.WriteLine("Please enter the new Departure Code");
-        string? newDepCode = Console.ReadLine();
+        string newDepCode = Console.ReadLine();
         Console.WriteLine("Please enter the new Arrival Code:");
-        string? newArrCode = Console.ReadLine();
+        string newArrCode = Console.ReadLine();
         Console.WriteLine("Please enter the new Crew ID:");
-        string? newCrewIdInput = Console.ReadLine();
-        int newCrewId = 0;
-        if (!string.IsNullOrWhiteSpace(newCrewIdInput) && !int.TryParse(newCrewIdInput, out newCrewId))
-        {
-            Console.WriteLine("Invalid crew ID. Flight information was not changed.");
-            return;
-        }
+        string newCrewIdInput = Console.ReadLine();
+        int newCrewId = int.Parse(newCrewIdInput);
         UpdateDepartureCode(newDepCode);
         UpdateArrivalCode(newArrCode);
         UpdateCrewId(newCrewId);
@@ -55,24 +52,24 @@ public class Flight
     {
         Console.WriteLine("Updating Flight Status for FL{0}", Number);
         Console.WriteLine("The available Flight Status States are as follows: 'Scheduled', 'On Time'," +
-                          " 'In Air', 'Arrived', 'Delayed', 'Canceled'.");
+                          " 'Delayed', 'Cancelled'.");
         Console.WriteLine("To leave the current flight status as is, please leave this field blank.");
         Console.WriteLine("Please enter the new Flight Status. :");
-        string? newStatus = Console.ReadLine();
+        string newStatus = Console.ReadLine();
         UpdateStatus(newStatus);
     }
 
-    private void UpdateDepartureCode(string? newDepCode)
+    private void UpdateDepartureCode(string newDepCode)
     {
-        if (!string.IsNullOrWhiteSpace(newDepCode))
+        if (newDepCode != "")
         {
             DepCode = newDepCode;
         }
     }
 
-    private void UpdateArrivalCode(string? newArrCode)
+    private void UpdateArrivalCode(string newArrCode)
     {
-        if (!string.IsNullOrWhiteSpace(newArrCode))
+        if (newArrCode != "")
         {
             ArrCode = newArrCode;
         }
@@ -86,13 +83,13 @@ public class Flight
         }
     }
 
-    private void UpdateStatus(string? newStatus)
+    private void UpdateStatus(string newStatus)
     {
-        if (!string.IsNullOrWhiteSpace(newStatus))
+        if (newStatus != "")
         {
-            if (newStatus == "Scheduled" || newStatus == "On Time" || newStatus == "In Air" || newStatus == "Arrived" || newStatus == "Delayed" || newStatus == "Canceled" || newStatus == "Cancelled")
+            if (newStatus == "Scheduled" || newStatus == "On Time" || newStatus == "Delayed" || newStatus == "Cancelled")
             {
-                Status = newStatus == "Cancelled" ? "Canceled" : newStatus;
+                Status = newStatus;
             }
             else
             {

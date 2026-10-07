@@ -4,10 +4,13 @@
  * SPDX-License-Identifier: MIT
  */
 
-using static System.Runtime.CompilerServices.RuntimeHelpers;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
-namespace VisualFlightOps
+
+
+namespace VisualFlightOps.Framework
 {
     public partial class Form1 : Form
     {
@@ -27,38 +30,35 @@ namespace VisualFlightOps
                 return;
             }
 
-            using (Form3 updateFlight = new Form3(flightInfo[SelectedIndex]))
-            {
-                if (updateFlight.ShowDialog(this) == DialogResult.OK)
-                {
-                    lstFlights.Items[SelectedIndex] = "Flight " + flightInfo[SelectedIndex].Number;
-                    RefreshFlightInformation();
-                }
-            }
+            Form3 updateFlight = new Form3(flightInfo[SelectedIndex]);
+            updateFlight.ShowDialog(this);
+            lstFlights.Items[SelectedIndex] = "Flight " + flightInfo[SelectedIndex].Number;
+            lstFlightInfo.Items.Clear();
+            if (SelectedIndex < 0 || !flightInfo.ContainsKey(SelectedIndex)) return;
+            SelectedIndex = lstFlights.SelectedIndex;
+            lstFlightInfo.Items.Add("Flight Number: " + flightInfo[SelectedIndex].Number);
+            lstFlightInfo.Items.Add("Departure Code: " + flightInfo[SelectedIndex].DepCode);
+            lstFlightInfo.Items.Add("Arrival Code: " + flightInfo[SelectedIndex].ArrCode);
+            lstFlightInfo.Items.Add("Crew ID: " + flightInfo[SelectedIndex].CrewId);
+            lstFlightInfo.Items.Add("Status: " + flightInfo[SelectedIndex].Status);
         }
 
         private void lstFlights_SelectedIndexChanged(object sender, EventArgs e)
         {
             SelectedIndex = lstFlights.SelectedIndex;
-            RefreshFlightInformation();
-        }
-
-        private void RefreshFlightInformation()
-        {
             lstFlightInfo.Items.Clear();
-            if (!flightInfo.TryGetValue(SelectedIndex, out Flight? flight))
-                return;
-
-            lstFlightInfo.Items.Add("Flight Number: " + flight.Number);
-            lstFlightInfo.Items.Add("Departure Code: " + flight.DepCode);
-            lstFlightInfo.Items.Add("Arrival Code: " + flight.ArrCode);
-            lstFlightInfo.Items.Add("Crew ID: " + flight.CrewId);
-            lstFlightInfo.Items.Add("Status: " + flight.Status);
+            if (SelectedIndex < 0 || !flightInfo.ContainsKey(SelectedIndex)) return;
+            lstFlightInfo.Items.Add("Flight Number: " + flightInfo[SelectedIndex].Number);
+            lstFlightInfo.Items.Add("Departure Code: " + flightInfo[SelectedIndex].DepCode);
+            lstFlightInfo.Items.Add("Arrival Code: " + flightInfo[SelectedIndex].ArrCode);
+            lstFlightInfo.Items.Add("Crew ID: " + flightInfo[SelectedIndex].CrewId);
+            lstFlightInfo.Items.Add("Status: " + flightInfo[SelectedIndex].Status);
         }
+
         private void btnCreateFlight_Click(object sender, EventArgs e)
         {
-            using Form2 createFlight = new Form2(this);
-            if (createFlight.ShowDialog(this) == DialogResult.OK)
+            Form2 createFlight = new Form2(this);
+            if (createFlight.ShowDialog() == DialogResult.OK)
             {
                 lstFlights.Items.Add("Flight " + createFlight.flightNumber);
                 Index += 1;
@@ -67,3 +67,4 @@ namespace VisualFlightOps
         }
     }
 }
+

@@ -1,3 +1,5 @@
+using System;
+using System.Windows.Forms;
 /*!
  * Visual Flight Operations Management System
  * Copyright (c) 2026 Louie Bloomberg.
@@ -5,7 +7,7 @@
  */
 
 
-namespace VisualFlightOps
+namespace VisualFlightOps.Framework
 {
     internal static class Program
     {
@@ -15,10 +17,10 @@ namespace VisualFlightOps
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
     }
 }
+
