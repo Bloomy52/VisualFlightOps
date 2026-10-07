@@ -1,7 +1,7 @@
 ﻿/*!
- * Represents a flight in the system.
- * Flight Operations Management System Demo App
- * Copyright (c) 2026 Louie Bloomberg. All Rights Reserved.
+ * Visual Flight Operations Management System
+ * Copyright (c) 2026 Louie Bloomberg.
+ * SPDX-License-Identifier: MIT
  */
 namespace VisualFlightOps;
 public class Flight

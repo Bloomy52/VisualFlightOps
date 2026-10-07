@@ -1,3 +1,10 @@
+/*!
+ * Visual Flight Operations Management System
+ * Copyright (c) 2026 Louie Bloomberg.
+ * SPDX-License-Identifier: MIT
+ */
+
+
 namespace VisualFlightOps
 {
     internal static class Program

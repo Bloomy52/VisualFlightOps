@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*!
+ * Visual Flight Operations Management System
+ * Copyrignt (c) 2026 Louie Bloomberg.
+ * SPDX-License-Identifier: MIT
+ */
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

@@ -1,3 +1,9 @@
+/*!
+ * Visual Flight Operations Management System
+ * Copyrignt (c) 2026 Louie Bloomberg.
+ * SPDX-License-Identifier: MIT
+ */
+
 using static System.Runtime.CompilerServices.RuntimeHelpers;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
