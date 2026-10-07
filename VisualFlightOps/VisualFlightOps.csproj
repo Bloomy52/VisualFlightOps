@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0CB23AD4-BDB5-4B45-88FE-48BAA080CE02}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>VisualFlightOps.Framework</RootNamespace>
-    <AssemblyName>VisualFlightOps.Framework</AssemblyName>
+    <RootNamespace>VisualFlightOps</RootNamespace>
+    <AssemblyName>VisualFlightOps</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
