@@ -1,7 +1,8 @@
 # Visual Flight Operations Management Tool
 A WinForms C# app demonstrating a simple Flight Operations Management Tool.
 
-**Heads Up**: This app is under development and features are being implemented. The core functionality of this app will remain the same. Any new features can be found in the changelog on the GitHub Release. It is noted that the `.NET Framework` version of this app starts at `v2.0.0` and will follow semantic versioning from there. 
+> [!NOTE]
+> This app is under development and features are being implemented. The core functionality of this app will remain the same. Any changes can be found in the changelog on the GitHub Release. The `.NET Framework` version of this app starts at `v2.0.0` and will follow semantic versioning from there. 
 
 
 ## Why?
