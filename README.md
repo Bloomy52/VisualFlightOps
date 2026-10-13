@@ -2,7 +2,7 @@
 A WinForms C# app demonstrating a simple Flight Operations Management Tool.
 
 > [!NOTE]
-> This app is under development and features are being implemented. The core functionality of this app will remain the same. Any changes can be found in the changelog on the GitHub Release. The `.NET Framework` version of this app starts at `v2.0.0` and will follow semantic versioning from there. 
+> This app is under development and features are being implemented. The core functionality of this app will remain the same. Any changes can be found in the changelog on the GitHub Release. The `.NET Framework` version of this app starts at `v2.0.0` and will follow semantic versioning from there. The latest stable release is `v1.2.0`. 
 
 
 ## Why?
