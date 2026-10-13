@@ -6,14 +6,14 @@ A WinForms C# app demonstrating a simple Flight Operations Management Tool.
 
 
 ## Why?
-I built the `Visual Flight Operations Management Tool` (`VisualFlightOps`), to help me better understand the avaiation industry and how they manage flights. It also allows me to showcase some C# skills I have been working on in a fun way.
+I built `Visual Flight Operations Management Tool` (`VisualFlightOps`), to help me better understand the avaiation industry and how they manage flights. It also allows me to showcase some C# skills I have been working on in a fun way.
 
 ## Using The Software
 This is great that you want to use the `Visual Flight Operations Management Tool`!
 But I do want to warn you that it has only been tested on a Windows 11 PC, so your milage
 may vary.
 
-Here are some ways you can install and use the `Visual Flight Operations Management Tool`:
+Here are some ways you can install and use `Visual Flight Operations Management Tool`:
 
 
 ### Downloading From GitHub Releases (Recommended)
